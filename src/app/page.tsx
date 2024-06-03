@@ -8,7 +8,7 @@ import ShareSetupSection from "@/components/sections/ShareSetupSection";
 
 export default function HomePage() {
   return (
-    <main>
+    <main className=" bg-white ">
       <NavBar />
       <HeroSection />
       <BrowseTheRangeSection />

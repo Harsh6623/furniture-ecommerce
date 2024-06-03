@@ -6,6 +6,24 @@ import Link from "next/link";
 
 function NavBar() {
   const [menu, setMenu] = useState(false);
+  const links = [
+    {
+      title: "Home",
+      link: "/",
+    },
+    {
+      title: "Shop",
+      link: "/shop",
+    },
+    {
+      title: "About",
+      link: "/about",
+    },
+    {
+      title: "Contact",
+      link: "/contact",
+    },
+  ];
   const toggleMenu = () => {
     setMenu(!menu);
   };
@@ -16,15 +34,19 @@ function NavBar() {
       <div className=" hidden lg:block animate-in fade-in zoom-in bg-white p-4">
         <div className="flex justify-between mx-[41px] items-center">
           <div>
-            <img src="/svgs/sf_logo.svg" alt="logo" />
+            <img src="/images/logo.png" alt="logo" />
           </div>
           <div className="flex gap-[20px] xl:gap-[50px] text-[16px] items-center select-none">
-            <p
-              className={`hover:text-primary cursor-pointer flex items-center gap-2  font-[500] text-gray`}
-            >
-              Link1
-            </p>
-            {/* Add more links here */}
+            {links.map((link, index) => (
+              <Link href={link.link}>
+                <p
+                  key={index}
+                  className={`hover:text-primary cursor-pointer flex items-center gap-2  font-[500] text-gray`}
+                >
+                  {link.title}
+                </p>
+              </Link>
+            ))}
           </div>
           <div className="flex items-center gap-[40px] select-none">
             <Link
@@ -44,7 +66,7 @@ function NavBar() {
       >
         <div className="flex justify-between mx-[10px]">
           <div className="flex gap-[50px] text-[16px] items-center select-none">
-            <img src="/svgs/sf_logo.svg" alt="logo" className="w-[7rem]" />
+            <img src="/images/logo.png" alt="logo" className="w-[7rem]" />
           </div>
           <div className="flex items-center gap-[40px]">
             {menu ? (
